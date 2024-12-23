@@ -191,6 +191,7 @@ class WhatsappService {
 			printQRInTerminal: true,
 			browser: [env.BOT_NAME || "Whatsapp Bot", "Chrome", "3.0"],
 			generateHighQualityLinkPreview: true,
+			syncFullHistory: true,
 			...socketConfig,
 			auth: {
 				creds: state.creds,
