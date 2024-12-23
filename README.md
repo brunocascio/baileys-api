@@ -10,7 +10,7 @@ Project continued from [nizarfadlan/baileys-api](https://github.com/nizarfadlan/
 
 ## Requirements
 
--   NodeJS version 22 or higher
+-   NodeJS version 22.11 or higher
 -   Prisma [supported databases](https://www.prisma.io/docs/reference/database-reference/supported-databases). Tested on PostgreSQL
 
 ## Installation
