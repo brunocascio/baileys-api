@@ -1,14 +1,14 @@
 services:
-  baileys-db:
-    image: postgres:16-alpine
-    env_file: .env
-    environment:
-      POSTGRES_PASSWORD: 2024pass
-      POSTGRES_DB: bailey
-    ports:
-      - "5432:5432"  # Exportado apenas para demonstração, remova em produção
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
+    baileys-db:
+        image: postgres:16-alpine
+        env_file: .env
+        environment:
+            POSTGRES_PASSWORD: 2024pass
+            POSTGRES_DB: bailey
+        ports:
+            - "5432:5432" # Exportado apenas para demonstração, remova em produção
+        volumes:
+            - postgres_data:/var/lib/postgresql/data
 
 volumes:
-  postgres_data:
+    postgres_data:
