@@ -3,7 +3,7 @@ import { ExpressServer } from "./express-server";
 import env from "@/config/env";
 import { SocketServer } from "./websocket-server";
 import WhatsappService from "@/whatsapp/service";
-import { initializeSocketEmitter } from "@/utils";
+import { initializeSocketEmitter, logger } from "@/utils";
 
 export class Server {
 	private httpServer: ExpressServer;
@@ -28,12 +28,12 @@ export class Server {
 		new WhatsappService();
 
 		this.server.listen(this.httpPort, () => {
-			console.log(`Server is running on port ${this.httpPort}`);
+			logger.info(`Server is running on port ${this.httpPort}`);
 		});
 
 		if (this.socketServer) {
 			initializeSocketEmitter(this.socketServer);
-			console.log("WebSocket server is running");
+			logger.info("WebSocket server is running");
 		}
 	}
 }

@@ -2,6 +2,7 @@ import type { EventsType } from "@/types/websocket";
 import type { SocketServer } from "../server/websocket-server";
 import env from "@/config/env";
 import axios from "axios";
+import { logger } from "./logger";
 
 let socketServer: SocketServer | null = null;
 export function initializeSocketEmitter(server: SocketServer) {
@@ -20,7 +21,7 @@ export function emitEvent(
 	}
 
 	if (!socketServer) {
-		console.error("Socket server not initialized. Call initializeSocketEmitter first.");
+		logger.error("Socket server not initialized. Call initializeSocketEmitter first.");
 		return;
 	}
 	socketServer.emitEvent(event, sessionId, { status, message, data });
@@ -42,6 +43,6 @@ export async function sendWebhook(
 			message,
 		});
 	} catch (e) {
-		console.error("Error sending webhook", e);
+		logger.error("Error sending webhook", e);
 	}
 }

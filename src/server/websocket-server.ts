@@ -2,6 +2,7 @@ import { type EventsType } from "@/types/websocket";
 import env from "@/config/env";
 import { Server as SocketIOServer } from "socket.io";
 import type http from "http";
+import { logger } from "@/utils";
 
 interface SocketData {
 	session_id: string;
@@ -36,7 +37,7 @@ export class SocketServer {
 			const { session_id } = socket.handshake.query as unknown as SocketData;
 
 			if (!session_id) {
-				console.log(`Invalid connection attempt: session_id=${session_id}`);
+				logger.error(`Invalid connection attempt: session_id=${session_id}`);
 				socket.disconnect(true);
 				return;
 			}
@@ -44,12 +45,12 @@ export class SocketServer {
 			this.addClient(session_id, socket.id);
 			socket.join(session_id);
 
-			console.log(`New Socket.IO connection: session_id=${session_id}`);
+			logger.info(`New Socket.IO connection: session_id=${session_id}`);
 			socket.emit("connected", { session_id });
 
 			socket.on("disconnect", () => {
 				this.removeClient(session_id, socket.id);
-				console.log(`Socket disconnected: session_id=${session_id}`);
+				logger.info(`Socket disconnected: session_id=${session_id}`);
 			});
 		});
 	}
@@ -72,7 +73,7 @@ export class SocketServer {
 	}
 
 	public emitEvent(event: EventsType, session_id: string, data: unknown) {
-		console.log(`Emitting event ${event} to session ${session_id}`);
+		logger.debug(`Emitting event ${event} to session ${session_id}`);
 
 		this.io.to(session_id).emit(event, { event, session_id, data });
 	}

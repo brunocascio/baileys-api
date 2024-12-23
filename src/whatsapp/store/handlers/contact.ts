@@ -49,8 +49,7 @@ export default function contactHandler(sessionId: string, event: BaileysEventEmi
 
 	const upsert: BaileysEventHandler<"contacts.upsert"> = async (contacts) => {
 		try {
-			console.info(`Received ${contacts.length} contacts for upsert.`); // Informative message
-			console.info(contacts[0]); // Informative message
+			logger.debug(`Received ${contacts.length} contacts for upsert.`); // Informative message
 
 			if (contacts.length === 0) {
 				return;

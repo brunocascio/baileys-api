@@ -1,4 +1,5 @@
 import { LogLevel } from "@/types";
+import { logger } from "@/utils";
 import { config } from "dotenv";
 import { z } from "zod";
 
@@ -86,7 +87,7 @@ if (!process.env.SKIP_ENV_VALIDATION) {
 
 	if (!parsedEnv.success) {
 		const error = formatErrors(parsedEnv.error.format());
-		console.error("❌ Invalid environment variables:\n", ...error);
+		logger.error("❌ Invalid environment variables:\n", ...error);
 		throw new Error("Invalid environment variables\n" + error.join(""));
 	}
 
