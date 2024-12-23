@@ -100,9 +100,9 @@ class WhatsappService {
 
 			if (code === DisconnectReason.loggedOut || doNotReconnect) {
 				if (res) {
-					!SSE &&
-						!res.headersSent &&
+					if (!SSE && !res.headersSent) {
 						res.status(500).json({ error: "Unable to create session" });
+					}
 					res.end();
 				}
 				destroy(doNotReconnect);
@@ -170,7 +170,9 @@ class WhatsappService {
 				res.writableEnded ||
 				(qr && currentGenerations >= env.SSE_MAX_QR_GENERATION)
 			) {
-				res && !res.writableEnded && res.end();
+				if (res && !res.writableEnded) {
+					res.end();
+				}
 				destroy();
 				return;
 			}
@@ -301,6 +303,7 @@ class WhatsappService {
 				return null;
 			}
 		} catch (e) {
+			// eslint-disable-line @typescript-eslint/no-unused-vars
 			return null;
 		}
 	}

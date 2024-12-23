@@ -1,4 +1,9 @@
-import type { BaileysEventEmitter, MessageUserReceipt, proto, WAMessageKey } from "@whiskeysockets/baileys";
+import type {
+	BaileysEventEmitter,
+	MessageUserReceipt,
+	proto,
+	WAMessageKey,
+} from "@whiskeysockets/baileys";
 import { jidNormalizedUser, toNumber } from "@whiskeysockets/baileys";
 import type { BaileysEventHandler, MakeTransformedPrisma } from "@/types";
 import { transformPrisma, logger, emitEvent } from "@/utils";
