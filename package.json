@@ -6,7 +6,7 @@
 	"scripts": {
 		"build": "tsc --project tsconfig.json && tscpaths -p tsconfig.json -s ./src",
 		"start": "node -r tsconfig-paths/register -r ts-node ./dist/main.js",
-		"dev": "nodemon src/main.ts",
+		"dev": "node --import=tsx --watch src/main.ts",
 		"lint": "eslint . --ext .ts",
 		"format": "prettier . --write",
 		"postinstall": "prisma generate",
@@ -15,7 +15,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/nizarfadlan/baileys-api.git"
+		"url": "git+https://github.com/brunocascio/baileys-api.git"
 	},
 	"keywords": [
 		"chat",
@@ -35,14 +35,13 @@
 		"baileys-api"
 	],
 	"author": {
-		"name": "Nizar Izzuddin Yatim Fadlan",
-		"email": "hello@nizarfadlan.dev"
+		"name": "Bruno Cascio"
 	},
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/nizarfadlan/baileys-api/issues"
+		"url": "https://github.com/brunocascio/baileys-api/issues"
 	},
-	"homepage": "https://github.com/nizarfadlan/baileys-api#readme",
+	"homepage": "https://github.com/brunocascio/baileys-api#readme",
 	"dependencies": {
 		"@hapi/boom": "^10.0.1",
 		"@prisma/client": "^4.16.2",
@@ -60,6 +59,7 @@
 		"qrcode": "^1.5.3",
 		"qrcode-terminal": "^0.12.0",
 		"socket.io": "^4.7.5",
+		"tsx": "^4.19.2",
 		"ws": "^8.16.0",
 		"zod": "^3.23.8"
 	},
@@ -74,7 +74,6 @@
 		"conventional-changelog-cli": "^4.1.0",
 		"eslint": "^8.56.0",
 		"eslint-config-prettier": "^9.1.0",
-		"nodemon": "^3.0.3",
 		"prettier": "^3.2.5",
 		"prettier-plugin-organize-imports": "^3.2.4",
 		"ts-node": "^10.9.2",
@@ -83,7 +82,7 @@
 		"typescript": "^5.3.3"
 	},
 	"engines": {
-		"node": ">=18.19.0"
+		"node": ">=22.9.0"
 	},
 	"files": [
 		"dist/",
