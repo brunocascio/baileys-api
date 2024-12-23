@@ -2,8 +2,8 @@ import makeWASocket, {
 	DisconnectReason,
 	isJidBroadcast,
 	makeCacheableSignalKeyStore,
-} from "baileys";
-import type { ConnectionState, SocketConfig, WASocket, proto } from "baileys";
+} from "@whiskeysockets/baileys";
+import type { ConnectionState, SocketConfig, WASocket, proto } from "@whiskeysockets/baileys";
 import { Store, useSession } from "./store";
 import { prisma } from "@/config/database";
 import { logger, delay, emitEvent } from "@/utils";

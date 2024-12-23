@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { BaileysEventEmitter, GroupMetadata } from "baileys";
+import type { BaileysEventEmitter, GroupMetadata } from "@whiskeysockets/baileys";
 import type { BaileysEventHandler, MakeTransformedPrisma } from "@/types";
 import { transformPrisma, logger, emitEvent } from "@/utils";
 import { prisma } from "@/config/database";

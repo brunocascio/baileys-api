@@ -1,5 +1,5 @@
-import type { proto, WAGenericMediaMessage, WAMessage } from "baileys";
-import { downloadMediaMessage } from "baileys";
+import type { proto, WAGenericMediaMessage, WAMessage } from "@whiskeysockets/baileys";
+import { downloadMediaMessage } from "@whiskeysockets/baileys";
 import { serializePrisma, delay as delayMs, logger, emitEvent } from "@/utils";
 import type { RequestHandler } from "express";
 import type { Message } from "@prisma/client";

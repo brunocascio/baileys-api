@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { AuthenticationCreds, AuthenticationState, SignalDataTypeMap } from "baileys";
-import { proto } from "baileys";
-import { BufferJSON, initAuthCreds } from "baileys";
+import type { AuthenticationCreds, AuthenticationState, SignalDataTypeMap } from "@whiskeysockets/baileys";
+import { proto } from "@whiskeysockets/baileys";
+import { BufferJSON, initAuthCreds } from "@whiskeysockets/baileys";
 import { prisma } from "@/config/database";
 import { logger } from "@/utils";
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
