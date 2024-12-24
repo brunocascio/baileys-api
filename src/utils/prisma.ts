@@ -22,7 +22,7 @@ export function transformPrisma<T extends Record<string, any>>(
 		}
 	}
 
-	return obj;
+	return JSON.parse(JSON.stringify(obj));
 }
 
 /** Transform prisma result into JSON serializable types */
