@@ -193,13 +193,13 @@ class WhatsappService {
 			printQRInTerminal: true,
 			browser: [env.BOT_NAME || "Whatsapp Bot", "Chrome", "3.0"],
 			generateHighQualityLinkPreview: true,
+			markOnlineOnConnect: false,
 			syncFullHistory: true,
 			...socketConfig,
 			auth: {
 				creds: state.creds,
 				keys: makeCacheableSignalKeyStore(state.keys, logger),
 			},
-			version: [2, 3000, 1015901307],
 			logger,
 			shouldIgnoreJid: (jid) => isJidBroadcast(jid),
 			getMessage: async (key) => {
