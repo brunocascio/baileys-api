@@ -108,7 +108,7 @@ export default function messageHandler(sessionId: string, event: BaileysEventEmi
 						where: { id: key.id!, remoteJid: key.remoteJid!, sessionId },
 					});
 					if (!prevData) {
-						return logger.info({ update }, "Got update for non existent message");
+						return logger.debug({ update }, "Got update for non existent message");
 					}
 
 					const data = { ...prevData, ...update } as proto.IWebMessageInfo;
